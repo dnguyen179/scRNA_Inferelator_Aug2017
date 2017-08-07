@@ -8,6 +8,7 @@ It includes:
 4. BISCUIT (Bayesian Inference for Single-cell Clustering and Imputing)
 5. RPCA (Robust Principal Component Analysis)
 6. Random split gold-standard (G.S) matrix into G.S and prior matrix 
+7. Post-Inferelator
 
 I. Preliminary data visualization and principle component analysis
 - Plot number of genes according to percent of zeros to determine cutoff threshold for subsequent analysis. This ensures that selected genes are expressed in the dataset (gene_vs_perZero.m; plot_gene_zero.m)
@@ -89,3 +90,5 @@ rand_GS_50.m
 - Split 50% of the edges to G.S matrix and the other 50% to prior matrix
 - Output: 2 files – GS and prior 
 
+IV. Post-Inferelator
+- Expand prediction groups into transcription factors that belong to each group with respective edges in the network 
