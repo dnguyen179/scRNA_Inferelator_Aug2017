@@ -4,7 +4,7 @@ This repository contains source code for project "Transcriptional regulatory net
 It includes:
 1. Plot genes vs percent of zeros 
 2. Principle Component Analysis 
-3. MAGIC (Markov Affinity-based Graph Imputation of Cells 
+3. MAGIC (Markov Affinity-based Graph Imputation of Cells) 
 4. BISCUIT (Bayesian Inference for Single-cell Clustering and Imputing)
 5. RPCA (Robust Principal Component Analysis)
 6. Random split gold-standard (G.S) matrix into G.S and prior matrix 
@@ -17,6 +17,7 @@ I. Preliminary data visualization and principle component analysis
 
 II. Data normalization and imputation methods 
 1. MAGIC (code: magic.m)
+
 a. Running the package
 - Set parameters: 
 + npca: number of principle components 
