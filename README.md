@@ -1,4 +1,4 @@
-# scRNA_Inferelator_Aug2017
+# scRNA_network_inferrence_Aug2017
 This repository contains source code for project "Transcriptional regulatory network inferrence from single-cell RNA measurements of embryonic stem cells" 
 
 It includes:
@@ -88,7 +88,7 @@ c. Data visualization
 
 
 III. Randomly split 50% edges of G.S into 1 G.S and 1 prior 
-rand_GS_50.m
+(rand_GS_50.m)
 - For each TF, find the number of edges (non-zero values) 
 - Split 50% of the edges to G.S matrix and the other 50% to prior matrix
 - Output: 2 files – GS and prior 
