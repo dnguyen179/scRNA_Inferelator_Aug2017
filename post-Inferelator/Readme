@@ -1,2 +1,2 @@
 1. If predictors are grouped, use get_group.R to obtain predictor names for each group 
-2. get_tf.py - replace pred.group.[num] variables in network file with TF names that belong to that prediction group
+2. get_TF.py: replace pred.group.[num] variables in network file with TF names that belong to that prediction group
