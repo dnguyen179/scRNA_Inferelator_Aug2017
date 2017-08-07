@@ -45,6 +45,7 @@ c. Data visualization
 + using k-means clustering for both row and column direction 
 
 2. RPCA (rpca.m)
+
 a. Pre-processing data 
 - by library size (median) 
 - by centered log-ration transformation (CLR) (R package)
@@ -64,6 +65,7 @@ c. Data visualization
 + using k-means clustering for both row and column direction 
 
 3. BISCUIT
+
 - Download BISCUIT package on: https://github.com/sandhya212/BISCUIT_SingleCell_IMM_ICML_2016
 
 - In R:
