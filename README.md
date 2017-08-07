@@ -1,5 +1,5 @@
 # scRNA_Inferelator_Aug2017
-This repository contains source code for project "Transcriptional regulatory network inferrence from single-cell RNA measurements of embryonic stem cells
+This repository contains source code for project "Transcriptional regulatory network inferrence from single-cell RNA measurements of embryonic stem cells" 
 
 It includes:
 1. Plot genes vs percent of zeros 
