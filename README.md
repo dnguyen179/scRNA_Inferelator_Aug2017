@@ -15,7 +15,7 @@ I. Preliminary data visualization and principle component analysis
 + input: data matrix with gene names and conditions (if applicable) 
 
 II. Data normalization and imputation methods 
- 1. MAGIC (code: magic.m)
+1. MAGIC (code: magic.m)
 a. Running the package
 - Set parameters: 
 + npca: number of principle components 
