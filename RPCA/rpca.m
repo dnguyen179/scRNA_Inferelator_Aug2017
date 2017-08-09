@@ -8,7 +8,7 @@ addpath(fullfile('~','Documents','emily_functions'))
 
 % input and gene cutoff (if necessary) 
 inputF = importdata('GSM1599497.txt');
-data_full = Count;
+data_full = inputF.data;
 % gene_names = gene_name; 
 
 %% normalization
