@@ -1,4 +1,4 @@
-# scRNA_network_inferrence_Aug2017
+# scRNA_network_inference_Aug2017
 This repository contains source code for project "Transcriptional regulatory network inferrence from single-cell RNA measurements of embryonic stem cells" 
 
 It includes:
