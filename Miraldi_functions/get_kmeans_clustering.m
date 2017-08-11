@@ -1,3 +1,5 @@
+%% Author: Emily R. Miraldi, Ph.D., Cincinnati Children’s Hospital
+
 function [mat_inf_new] = get_kmeans_clustering(...
     data,...             % COMPLETE data matrix
     x_labelsc,...        % cell string for X labels
