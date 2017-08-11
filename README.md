@@ -42,7 +42,8 @@ I. Preliminary data visualization and principle component analysis (gene_vs_zero
 [in MATLAB] plot_gene_zero.m <RET>
 
 - Principal Component Analysis (in../scRNA_network_inference_Aug2017-master/PCA/pca_perZeros.m): This allows data visualization according to how much of the variability in the data can be accounted by 4 principal components. Data in scores plots are grouped and color-coded by the percent of zeros (ascending by 12.5%) 
-  + To invoke, type this command: pca_perZeros.m <RET>
+  + To invoke, type this command: 
+[in MATLAB] pca_perZeros.m <RET>
 
 II. Data normalization and imputation methods 
 1. MAGIC (code: magic.m, in ../scRNA_network_inference_Aug2017-master/MAGIC)
