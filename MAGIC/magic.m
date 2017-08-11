@@ -1,13 +1,10 @@
 %% MAGIC normalization 
 
-addpath(fullfile('~','Desktop'));
-% addpath(fullfile('~','Desktop', 'magic_gse75790'));
-addpath(fullfile('~','Desktop','Research','magic_matlab'));
-addpath(fullfile('~','Documents','emily_functions','projection'))
-addpath(fullfile('~','Documents','emily_functions'))
+addpath(fullfile('~','emily_functions','projection'))
+addpath(fullfile('~','emily_functions'))
 
 % Load data and gene/cell names - input matrix should be cells x genes 
-inputF = importdata('GSM1599497.txt');
+inputF = importdata('GSM1599497_ES_d2_LIFminus.csv');
 OriginalData = inputF.data;  % genesxcells matrix
 
 data = OriginalData'; % cellsxgenes matrix as input for MAGIC
@@ -51,7 +48,7 @@ for i = 1:numGenes
     end
 end
 
-save('smartseq1_magic.mat', 'Scaled_Data');
+save('gsm97_magic.mat', 'Scaled_Data');
 
 %% Imputed vs original gene expression 
 
@@ -142,7 +139,7 @@ clust_num_cols = length(ex_ids_cols);
 start_spots_cols = zeros(clust_num_cols,1);
 clust_sizes_cols = zeros(clust_num_cols,1);
 start_cols = 1;
-figure(3), clf
+figure(4), clf
 for clust = 1:clust_num_cols
     clust_ind_cols = find(kids_cols == ex_ids_cols(clust));
     if length(clust_ind_cols) > 1
@@ -161,7 +158,7 @@ for clust = 1:clust_num_cols
 end
 
 % plot clustering results 
-figure (4), clf 
+figure (5), clf 
 imagesc(pcData(inds_ordered_rows,inds_ordered_cols))
 colormap redblue
 colorbar
