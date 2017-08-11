@@ -2,8 +2,7 @@
 
 addpath(fullfile('~','inexact_alm_rpca'));
 addpath(fullfile('~','inexact_alm_rpca', 'PROPACK'));
-addpath(fullfile('~','emily_functions','projection'))
-addpath(fullfile('~','emily_functions'))
+addpath(fullfile('~','Miraldi_functions'))
 
 % input and gene cutoff (if necessary) 
 inputF = importdata('GSM1599497_ES_d2_LIFminus.csv');
