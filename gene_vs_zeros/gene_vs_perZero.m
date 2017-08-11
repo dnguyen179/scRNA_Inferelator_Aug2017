@@ -1,11 +1,6 @@
 function[numgene_perzeros] = gene_vs_perZero(inputData)
 %% Plot percent genes vs sparsity of gene row 
 
-% addpath(fullfile('scRNA_ramanathan'))
-% addpath(fullfile('GSE75790'))
-% addpath(fullfile('GSM1599494'))
-% addpath(fullfile('Datasets'))
-
 countmatrix = inputData;
 [Nrow, Ncol] = size(countmatrix);
 
