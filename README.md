@@ -43,12 +43,12 @@ a. Running the package
 
 - Function run_magic(data, t, npca, ka, k, lib_size_norm, log_transform) returns imputed data matrix 
 
-b. Scaling data 
+b. Scaling data (done automatically once magic.m is invoked)
 - Calculate the median and mean/median absolute deviation (MAD) for nonzero values in original data (normalized by median of library size) and imputed data from MAGIC
 - Scaling factors are the difference of medians and the ratio of MADs
 - Scaled data = (MAGIC-imputed data + difference of medians) * ration of MADs 
 
-c. Data visualization 
+c. Data visualization (done automatically once magic.m is invoked)
 - Distribution of log gene expression of original data and MAGIC-imputed data (+ pseudocount) via histogram 
 - Density plot of original data and imputed data to show the correlation
 - Heatmap of cluster-specific gene expression 
@@ -73,7 +73,7 @@ http://perception.csl.illinois.edu/matrix-rank/sample_code.html
 - Calculate lamda = 1/sqrt(max(number of genes, number of cells))
 - Function inexact_alm_rpca(data matrix, lamda, tolerance for stopping criterion, maximum number of iterations) returns estimates of matrix A (A_hat) and E (E_hat)
 
-c. Data visualization
+c. Data visualization (done automatically once rpca.m is invoked)
 - Heatmap of cluster-specific gene expression 
 + z-score across genes and samples 
 + using k-means clustering for both row and column direction 
