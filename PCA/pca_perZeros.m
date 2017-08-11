@@ -1,3 +1,5 @@
+% Author: Emily R. Miraldi, Ph.D., Cincinnati Children’s Hospital
+
 %% pca_anal_example
 %% Goals:
 % 1. load the text file
