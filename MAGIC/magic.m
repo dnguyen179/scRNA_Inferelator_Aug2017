@@ -1,7 +1,6 @@
 %% MAGIC normalization 
 
-addpath(fullfile('~','emily_functions','projection'))
-addpath(fullfile('~','emily_functions'))
+addpath(fullfile('~','Miraldi_functions'))
 
 % Load data and gene/cell names - input matrix should be cells x genes 
 inputF = importdata('GSM1599497_ES_d2_LIFminus.csv');
