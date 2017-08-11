@@ -20,7 +20,7 @@ directory (folder) and issuing this command:
 
 bzip2 -dk *.bz2 <RET>
 
-For Matlab use, at the start of each program there is a addpath(genpath()) command, which the user will have to alter, substituting in the full path to the downloaded GitHub diretory. For example, if the downloaded directory is in
+* For Matlab use, at the start of each program there is a addpath(genpath()) command, which the user will have to alter, substituting in the full path to the downloaded GitHub diretory. For example, if the downloaded directory is in
 
    /MiraldiLab/scRNA_network_inferrence_Aug2017-master
 
