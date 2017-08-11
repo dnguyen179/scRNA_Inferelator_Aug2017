@@ -1,3 +1,5 @@
+%% Author: Emily R. Miraldi, Ph.D., Cincinnati Children’s Hospital
+
 function histScatterLog(xstuff,ystuff,nbins,stepSize,label,fontSize,figBase)
 % use hist3d to get a 2D scatter density plot
 % Inputs:
