@@ -12,7 +12,23 @@ It includes:
 
 * Software required: MATLAB (tested in R2016a), R (tested in 3.4.0) and Python (tested in 3.6.1)
 * All tested data sets are contained in the Datasets folder (in compressed format)
+- Uncompress them before use by changing to the
 
+ ../scRNA_network_inferrence_Aug2017-master/Datasets
+
+directory (folder) and issuing this command:
+
+bzip2 -dk *.bz2 <RET>
+
+For Matlab use, at the start of each program there is a addpath(genpath()) command, which the user will have to alter, substituting in the full path to the downloaded GitHub diretory. For example, if the downloaded directory is in
+
+   /MiraldiLab/scRNA_network_inferrence_Aug2017-master
+
+then the addpath() line should be
+
+addpath(genpath('/MiraldiLab/DiepNguyenGitHubProject/scRNA_network_inferrence_Aug2017-master'))
+
+Once that is done, the data files should now be ready for use and accessible to the Matlab programs simply by file name.
 -----------
 WORKFLOW
 
@@ -26,7 +42,7 @@ I. Preliminary data visualization and principle component analysis (gene_vs_zero
 [in MATLAB] plot_gene_zero.m <RET>
 
 - Principal Component Analysis (in../scRNA_network_inference_Aug2017-master/PCA/pca_perZeros.m): This allows data visualization according to how much of the variability in the data can be accounted by 4 principal components. Data in scores plots are grouped and color-coded by the percent of zeros (ascending by 12.5%) 
-
+  + To invoke, type this command: pca_perZeros.m <RET>
 
 II. Data normalization and imputation methods 
 1. MAGIC (code: magic.m, in ../scRNA_network_inference_Aug2017-master/MAGIC)
@@ -60,16 +76,13 @@ c. Data visualization (done automatically once magic.m is invoked)
 
 2. RPCA (rpca.m, in in ../scRNA_network_inference_Aug2017-master/RPCA)
 
-a. Pre-processing data 
-- by library size (median) 
-- by centered log-ration transformation (CLR) (R package)
-
-b. Running the package 
+a. Running the package 
 - Download from: 
 http://perception.csl.illinois.edu/matrix-rank/sample_code.html
 - Use inexact augmented lagrange multiplier (ALM) method
 - Change parameters:
   + Input data file 
+  + data pre-processing methods: library size, CLR, zscore or log2
   + tol 
   + maxIter 
 - Calculate lamda = 1/sqrt(max(number of genes, number of cells))
@@ -78,7 +91,7 @@ http://perception.csl.illinois.edu/matrix-rank/sample_code.html
 
 [in MATLAB] rpca.m <RET>
 
-c. Data visualization (done automatically once rpca.m is invoked)
+b. Data visualization (done automatically once rpca.m is invoked)
 - Heatmap of cluster-specific gene expression 
 + z-score across genes and samples 
 + using k-means clustering for both row and column direction 
@@ -113,18 +126,18 @@ III. Randomly split 50% edges of G.S into 1 G.S and 1 prior
 - Alter the names of the input file and of the two output files as desired
 - Output: 2 files – G.S and prior 
 - Once the input and parameters have been altered, type this command to run the program:
-
+- To invoke, type this command:
 [in MATLAB] rand_GS_50.m <RET>
 
 IV. Post-Inferelator
 (get_group.R; get_TF.py)
 - This step uses R and Python
 - Edit the get_group.R R program as desired to select the name of the input Inferelator file. The body of the program will need to be altered to reflect the number of predictor groups. The program code must match the number of groups in the selected Inferelator file used as input.
-  
+  + To invoke, type this command: 
 [in R]  Rscript get_group.R <RET>
   
 - The output of get_group.R is used as the input for get_TF.py: Edit the get_TF.py Python file aS desired to select the name of the input Inferelator file (as the "network"). The "pred_file" will be set to the output file name of the R program run avbove. The "TF_network" will be set to the desired output file name.
-  
+  + To invoke, type this command: 
 [in Python]  Python3 get_TF.py
 
 
