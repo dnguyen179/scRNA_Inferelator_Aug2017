@@ -23,7 +23,7 @@ I. Preliminary data visualization and principle component analysis (gene_vs_zero
   + Visualization program: plot_gene_zero.m 
   + Once the desired data file(s) has been hard-coded into the program, to display plot, type this command: 
 
-plot_gene_zero.m <RET>
+[in MATLAB] plot_gene_zero.m <RET>
 
 - Principal Component Analysis (in../scRNA_network_inference_Aug2017-master/PCA/pca_perZeros.m): This allows data visualization according to how much of the variability in the data can be accounted by 4 principal components. Data in scores plots are grouped and color-coded by the percent of zeros (ascending by 12.5%) 
 
@@ -42,7 +42,7 @@ a. Running the package
 - Input data matrix has to be cells x genes 
 - Function run_magic(data, t, npca, ka, k, lib_size_norm, log_transform) returns imputed data matrix 
 - Once the input and parameters have been altered, type this command to run the program:
-magic.m <RET>
+[in MATLAB] magic.m <RET>
 
 b. Scaling data (done automatically once magic.m is invoked)
 - Calculate the median and mean/median absolute deviation (MAD) for nonzero values in original data (normalized by median of library size) and imputed data from MAGIC
@@ -75,7 +75,7 @@ http://perception.csl.illinois.edu/matrix-rank/sample_code.html
 - Function inexact_alm_rpca(data matrix, lamda, tolerance for stopping criterion, maximum number of iterations) returns estimates of matrix A (A_hat) and E (E_hat)
 - Once the input and parameters have been altered, type this command to run the program:
 
-rpca.m <RET>
+[in MATLAB] rpca.m <RET>
 
 c. Data visualization (done automatically once rpca.m is invoked)
 - Heatmap of cluster-specific gene expression 
@@ -103,7 +103,7 @@ c. Data visualization (done automatically once rpca.m is invoked)
   + Generate heatmap based on clusters inferred from BISCUIT (z_inferred_final) and density plot to show correlation
 - To run the file, type this command: 
 
-BISCUIT_calculations.m <RET>
+[in MATLAB] BISCUIT_calculations.m <RET>
 
 III. Randomly split 50% edges of G.S into 1 G.S and 1 prior 
 (rand_GS_50.m)
@@ -113,18 +113,18 @@ III. Randomly split 50% edges of G.S into 1 G.S and 1 prior
 - Output: 2 files – G.S and prior 
 - Once the input and parameters have been altered, type this command to run the program:
 
-rand_GS_50.m <RET>
+[in MATLAB] rand_GS_50.m <RET>
 
 IV. Post-Inferelator
 (get_group.R; get_TF.py)
 - This step uses R and Python
 - Edit the get_group.R R program as desired to select the name of the input Inferelator file. The body of the program will need to be altered to reflect the number of predictor groups. The program code must match the number of groups in the selected Inferelator file used as input.
   
-  Rscript get_group.R <RET>
+[in R]  Rscript get_group.R <RET>
   
 - The output of get_group.R is used as the input for get_TF.py: Edit the get_TF.py Python file aS desired to select the name of the input Inferelator file (as the "network"). The "pred_file" will be set to the output file name of the R program run avbove. The "TF_network" will be set to the desired output file name.
   
-  Python3 get_TF.py
+[in Python]  Python3 get_TF.py
 
 
 
