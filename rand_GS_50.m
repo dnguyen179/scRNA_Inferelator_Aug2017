@@ -1,6 +1,6 @@
 %% random pick 50% GS as priors 
 
-inputF = '/Users/ngu9wm/Desktop/priors/ESCAPE_KC.tsv';
+inputF = '/Users/ngu9wm/Desktop/priors/ESCAPE_KC.tsv'; %path to the gold-standard file
 fid = fopen(inputF);
 tline=fgetl(fid);
 reg_names = cellstr(strvcat(strsplit(tline,'\t')))';
@@ -29,7 +29,7 @@ for i = 1:col
 end
 
 
-outFile = fullfile('prior_matrix_50GS.txt');
+outFile = fullfile('prior_matrix_50GS.txt');    %name of the output gold-standard file
 fout = fopen(outFile,'w');
 fprintf(fout,['\t' strjoin(reg_names,'\t') '\n']);
 for gene = 1:length(gene_names)
@@ -39,7 +39,7 @@ fclose(fout);
 disp([outFile ' generated.'])
 % 
 % 
-outFile = fullfile('gs_matrix_50GS.txt');
+outFile = fullfile('gs_matrix_50GS.txt');   % name of the output prior file
 fout = fopen(outFile,'w');
 fprintf(fout,['\t' strjoin(reg_names,'\t') '\n']);
 for gene = 1:length(gene_names)
