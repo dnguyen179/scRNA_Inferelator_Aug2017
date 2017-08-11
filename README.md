@@ -56,7 +56,6 @@ a. Running the package
   + t: diffusion time, usually between 6 – 12, smaller ka/k requires bigger t 
   + library size normalization: TRUE or FALSE (normally TRUE)
   + log transformation: TRUE or FALSE (normally FALSE)
-- Input data matrix has to be cells x genes 
 - Function run_magic(data, t, npca, ka, k, lib_size_norm, log_transform) returns imputed data matrix 
 - Once the input and parameters have been altered, type this command to run the program:
 
