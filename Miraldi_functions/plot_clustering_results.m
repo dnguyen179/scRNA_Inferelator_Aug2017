@@ -1,3 +1,5 @@
+%% Author: Emily R. Miraldi, Ph.D., Cincinnati Children’s Hospital
+
 function plot_clustering_results(...
     mat_inf,...     % specify the .mat file with clustering results
     output_folder,...   % output folder for figures and such
