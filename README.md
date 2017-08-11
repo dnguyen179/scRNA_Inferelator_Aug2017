@@ -109,4 +109,11 @@ III. Randomly split 50% edges of G.S into 1 G.S and 1 prior
 - Output: 2 files – G.S and prior 
 
 IV. Post-Inferelator
-- Expand prediction groups into transcription factors that belong to each group with respective edges in the network 
+(get_group.R; get_TF.py)
+- This step uses R and Python
+- Edit the get_group.R R program as desired to select the name of the input Inferelator file. The body of the program will need to be altered to reflect the number of predictor groups. The program code must match the number of groups in the selected Inferelator file used as input.
+- The output of get_group.R is used as the input for get_TF.py: Edit the get_TF.py Python file aS desired to select the name of the input Inferelator file (as the "network"). The "pred_file" will be set to the output file name of the R program run avbove. The "TF_network" will be set to the desired output file name.
+
+
+
+
