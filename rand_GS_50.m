@@ -10,8 +10,8 @@ totRegs = length(reg_names);
 fid = fopen(inputF);
 C = textscan(fid,['%s' repmat('%f',1,totRegs)],'Delimiter','\t','Headerlines',1);
 fclose(fid);
-gene_name = C{1};
-totTargs = length(gene_name); 
+gene_names = C{1};
+totTargs = length(gene_names); 
 ncounts = [C{2:end}];
 [row, col] = size(ncounts);
 
@@ -32,8 +32,8 @@ end
 outFile = fullfile('prior_matrix_50GS.txt');
 fout = fopen(outFile,'w');
 fprintf(fout,['\t' strjoin(reg_names,'\t') '\n']);
-for gene = 1:length(gene_name)
-    fprintf(fout,[gene_name{gene} '\t' strjoin(cellstr(num2str(prior_matrix(gene,:)')),'\t') '\n']);
+for gene = 1:length(gene_names)
+    fprintf(fout,[gene_names{gene} '\t' strjoin(cellstr(num2str(prior_matrix(gene,:)')),'\t') '\n']);
 end
 fclose(fout);
 disp([outFile ' generated.'])
@@ -42,8 +42,8 @@ disp([outFile ' generated.'])
 outFile = fullfile('gs_matrix_50GS.txt');
 fout = fopen(outFile,'w');
 fprintf(fout,['\t' strjoin(reg_names,'\t') '\n']);
-for gene = 1:length(gene_name)
-    fprintf(fout,[gene_name{gene} '\t' strjoin(cellstr(num2str(gs_matrix(gene,:)')),'\t') '\n']);
+for gene = 1:length(gene_names)
+    fprintf(fout,[gene_names{gene} '\t' strjoin(cellstr(num2str(gs_matrix(gene,:)')),'\t') '\n']);
 end
 fclose(fout);
 disp([outFile ' generated.'])
