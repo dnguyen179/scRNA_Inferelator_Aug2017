@@ -91,8 +91,8 @@ c. Data visualization (done automatically once rpca.m is invoked)
 - Edit the following files:
   + start_file.R: input file name, number of cells, number of genes, number of genes per batch, number of iterations, number of cores, labels of cells (TRUE or FALSE), number of cells per batch
   + BISCUIT_process_data.R: 
-    •	Change HEADER = FALSE (line 54 or 56 depending on input file type)
-    •	Choose 1 of the 3 methods to get meaningful genes (usually choose Idea 1 based on standard deviation)
+    +	Change HEADER = FALSE (line 54 or 56 depending on input file type)
+    +	Choose 1 of the 3 methods to get meaningful genes (usually choose Idea 1 based on standard deviation)
 - Output:
   + export alpha_inferred_final, beta_inferred_final, z_inferred_final 
   + export selected gene expression data matrix (when perform one of the three methods): X_all (already log-transformed)
