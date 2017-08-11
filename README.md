@@ -38,10 +38,10 @@ a. Running the package
   + t: diffusion time, usually between 6 – 12, smaller ka/k requires bigger t 
   + library size normalization: TRUE or FALSE (normally TRUE)
   + log transformation: TRUE or FALSE (normally FALSE)
-
 - Input data matrix has to be cells x genes 
-
 - Function run_magic(data, t, npca, ka, k, lib_size_norm, log_transform) returns imputed data matrix 
+- Once the input and parameters have been altered, type this command to run the program:
+magic.m <RET>
 
 b. Scaling data (done automatically once magic.m is invoked)
 - Calculate the median and mean/median absolute deviation (MAD) for nonzero values in original data (normalized by median of library size) and imputed data from MAGIC
@@ -72,6 +72,8 @@ http://perception.csl.illinois.edu/matrix-rank/sample_code.html
   + maxIter 
 - Calculate lamda = 1/sqrt(max(number of genes, number of cells))
 - Function inexact_alm_rpca(data matrix, lamda, tolerance for stopping criterion, maximum number of iterations) returns estimates of matrix A (A_hat) and E (E_hat)
+- Once the input and parameters have been altered, type this command to run the program:
+rpca.m <RET>
 
 c. Data visualization (done automatically once rpca.m is invoked)
 - Heatmap of cluster-specific gene expression 
@@ -79,13 +81,10 @@ c. Data visualization (done automatically once rpca.m is invoked)
 + using k-means clustering for both row and column direction 
 
 3. BISCUIT
-
 - Download BISCUIT package on: https://github.com/sandhya212/BISCUIT_SingleCell_IMM_ICML_2016
-
 - In R:
   + install packages: install.packages(c("MCMCpack","mvtnorm","ellipse","coda","Matrix","Rtsne","gtools","foreach","doParallel","doSNOW","snow","lattice","MASS","bayesm","robustbase","chron","mnormt","schoolmath","devtools","RColorBrewer"))
   + set working_path = getwd()
-
 - Edit the following files:
   + start_file.R: input file name, number of cells, number of genes, number of genes per batch, number of iterations, number of cores, labels of cells (TRUE or FALSE), number of cells per batch
   + BISCUIT_process_data.R: 
@@ -97,9 +96,11 @@ c. Data visualization (done automatically once rpca.m is invoked)
   + export imputed data matrix: Y_rt_final 
 
 - BISCUIT calculations (BISCUIT_calculations.m)
+  + Input: alpha_inferred_final, beta_inferred_final, z_inferred_final, selected gene expression matrix, mu_final, sigma_final
   + Impute data matrix based on linear transformation y = Ax+b 
   + Generate heatmap based on clusters inferred from BISCUIT (z_inferred_final) and density plot to show correlation
-
+- To run the file, type this command: 
+BISCUIT_calculations.m <RET>
 
 III. Randomly split 50% edges of G.S into 1 G.S and 1 prior 
 (rand_GS_50.m)
@@ -107,12 +108,18 @@ III. Randomly split 50% edges of G.S into 1 G.S and 1 prior
 - Split 50% of the edges to G.S matrix and the other 50% to prior matrix
 - Alter the names of the input file and of the two output files as desired
 - Output: 2 files – G.S and prior 
+- Once the input and parameters have been altered, type this command to run the program:
+rand_GS_50.m <RET>
 
 IV. Post-Inferelator
 (get_group.R; get_TF.py)
 - This step uses R and Python
 - Edit the get_group.R R program as desired to select the name of the input Inferelator file. The body of the program will need to be altered to reflect the number of predictor groups. The program code must match the number of groups in the selected Inferelator file used as input.
+  Rscript get_group.R <RET>
+  
 - The output of get_group.R is used as the input for get_TF.py: Edit the get_TF.py Python file aS desired to select the name of the input Inferelator file (as the "network"). The "pred_file" will be set to the output file name of the R program run avbove. The "TF_network" will be set to the desired output file name.
+  Python3 get_TF.py
+
 
 
 
