@@ -42,6 +42,7 @@ a. Running the package
 - Input data matrix has to be cells x genes 
 - Function run_magic(data, t, npca, ka, k, lib_size_norm, log_transform) returns imputed data matrix 
 - Once the input and parameters have been altered, type this command to run the program:
+
 [in MATLAB] magic.m <RET>
 
 b. Scaling data (done automatically once magic.m is invoked)
