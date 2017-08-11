@@ -22,6 +22,7 @@ I. Preliminary data visualization and principle component analysis (gene_vs_zero
   + Select the data set(s) to visualize (found in ../scRNA_network_inference_Aug2017-master/Datasets)
   + Visualization program: plot_gene_zero.m 
   + Once the desired data file(s) has been hard-coded into the program, to display plot, type this command: 
+
 plot_gene_zero.m <RET>
 
 - Principal Component Analysis (in../scRNA_network_inference_Aug2017-master/PCA/pca_perZeros.m): This allows data visualization according to how much of the variability in the data can be accounted by 4 principal components. Data in scores plots are grouped and color-coded by the percent of zeros (ascending by 12.5%) 
@@ -73,6 +74,7 @@ http://perception.csl.illinois.edu/matrix-rank/sample_code.html
 - Calculate lamda = 1/sqrt(max(number of genes, number of cells))
 - Function inexact_alm_rpca(data matrix, lamda, tolerance for stopping criterion, maximum number of iterations) returns estimates of matrix A (A_hat) and E (E_hat)
 - Once the input and parameters have been altered, type this command to run the program:
+
 rpca.m <RET>
 
 c. Data visualization (done automatically once rpca.m is invoked)
@@ -100,6 +102,7 @@ c. Data visualization (done automatically once rpca.m is invoked)
   + Impute data matrix based on linear transformation y = Ax+b 
   + Generate heatmap based on clusters inferred from BISCUIT (z_inferred_final) and density plot to show correlation
 - To run the file, type this command: 
+
 BISCUIT_calculations.m <RET>
 
 III. Randomly split 50% edges of G.S into 1 G.S and 1 prior 
@@ -109,15 +112,18 @@ III. Randomly split 50% edges of G.S into 1 G.S and 1 prior
 - Alter the names of the input file and of the two output files as desired
 - Output: 2 files – G.S and prior 
 - Once the input and parameters have been altered, type this command to run the program:
+
 rand_GS_50.m <RET>
 
 IV. Post-Inferelator
 (get_group.R; get_TF.py)
 - This step uses R and Python
 - Edit the get_group.R R program as desired to select the name of the input Inferelator file. The body of the program will need to be altered to reflect the number of predictor groups. The program code must match the number of groups in the selected Inferelator file used as input.
+  
   Rscript get_group.R <RET>
   
 - The output of get_group.R is used as the input for get_TF.py: Edit the get_TF.py Python file aS desired to select the name of the input Inferelator file (as the "network"). The "pred_file" will be set to the output file name of the R program run avbove. The "TF_network" will be set to the desired output file name.
+  
   Python3 get_TF.py
 
 
