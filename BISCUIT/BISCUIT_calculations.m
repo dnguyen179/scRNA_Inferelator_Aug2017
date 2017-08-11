@@ -3,8 +3,7 @@
 addpath(fullfile('~', 'BISCUIT', 'output', 'plots', 'Inferred_Sigmas'))
 addpath(fullfile('~','BISCUIT', 'output', 'plots', 'Inferred_means'))
 addpath(fullfile('~', 'BISCUIT'));
-addpath(fullfile('~', 'emily_functions','projection'))
-addpath(fullfile('~', 'emily_functions'))
+addpath(fullfile('~', 'Miraldi_functions'))
 
 
 cluster_num = importdata('z_inferred_final.txt'); %% obtain via variable z_inferred_final 
