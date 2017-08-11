@@ -32,12 +32,12 @@ II. Data normalization and imputation methods
 
 a. Running the package
 - Set parameters: 
-+ npca: number of principle components 
-+ ka: number of nearest neighbors 
-+ k : minimum number of neighbors for each cell 
-+ t: diffusion time, usually between 6 – 12, smaller ka/k requires bigger t 
-+ library size normalization: TRUE or FALSE (normally TRUE)
-+ log transformation: TRUE or FALSE (normally FALSE)
+  + npca: number of principle components 
+  + ka: number of nearest neighbors 
+  + k : minimum number of neighbors for each cell 
+  + t: diffusion time, usually between 6 – 12, smaller ka/k requires bigger t 
+  + library size normalization: TRUE or FALSE (normally TRUE)
+  + log transformation: TRUE or FALSE (normally FALSE)
 
 - Input data matrix has to be cells x genes 
 
@@ -52,9 +52,9 @@ c. Data visualization
 - Distribution of log gene expression of original data and MAGIC-imputed data (+ pseudocount) via histogram 
 - Density plot of original data and imputed data to show the correlation
 - Heatmap of cluster-specific gene expression 
-+ Need to change the number of desired clusters, default = 4 
-+ z-score across genes and samples 
-+ using k-means clustering for both row and column direction 
+  + Need to change the number of desired clusters, default = 4 
+  + z-score across genes and samples 
+  + using k-means clustering for both row and column direction 
 
 2. RPCA (rpca.m, in in ../scRNA_network_inference_Aug2017-master/RPCA)
 
@@ -67,9 +67,9 @@ b. Running the package
 http://perception.csl.illinois.edu/matrix-rank/sample_code.html
 - Use inexact augmented lagrange multiplier (ALM) method
 - Change parameters:
-+ Input data file 
-+ tol 
-+ maxIter 
+  + Input data file 
+  + tol 
+  + maxIter 
 - Calculate lamda = 1/sqrt(max(number of genes, number of cells))
 - Function inexact_alm_rpca(data matrix, lamda, tolerance for stopping criterion, maximum number of iterations) returns estimates of matrix A (A_hat) and E (E_hat)
 
@@ -83,22 +83,22 @@ c. Data visualization
 - Download BISCUIT package on: https://github.com/sandhya212/BISCUIT_SingleCell_IMM_ICML_2016
 
 - In R:
-+ install packages: install.packages(c("MCMCpack","mvtnorm","ellipse","coda","Matrix","Rtsne","gtools","foreach","doParallel","doSNOW","snow","lattice","MASS","bayesm","robustbase","chron","mnormt","schoolmath","devtools","RColorBrewer"))
-+ set working_path = getwd()
+  + install packages: install.packages(c("MCMCpack","mvtnorm","ellipse","coda","Matrix","Rtsne","gtools","foreach","doParallel","doSNOW","snow","lattice","MASS","bayesm","robustbase","chron","mnormt","schoolmath","devtools","RColorBrewer"))
+  + set working_path = getwd()
 
 - Edit the following files:
-+ start_file.R: input file name, number of cells, number of genes, number of genes per batch, number of iterations, number of cores, labels of cells (TRUE or FALSE), number of cells per batch
-+ BISCUIT_process_data.R: 
-•	Change HEADER = FALSE (line 54 or 56 depending on input file type)
-•	Choose 1 of the 3 methods to get meaningful genes (usually choose Idea 1 based on standard deviation)
+  + start_file.R: input file name, number of cells, number of genes, number of genes per batch, number of iterations, number of cores, labels of cells (TRUE or FALSE), number of cells per batch
+  + BISCUIT_process_data.R: 
+    •	Change HEADER = FALSE (line 54 or 56 depending on input file type)
+    •	Choose 1 of the 3 methods to get meaningful genes (usually choose Idea 1 based on standard deviation)
 - Output:
-+ export alpha_inferred_final, beta_inferred_final, z_inferred_final 
-+ export selected gene expression data matrix (when perform one of the three methods): X_all (already log-transformed)
-+ export imputed data matrix: Y_rt_final 
+  + export alpha_inferred_final, beta_inferred_final, z_inferred_final 
+  + export selected gene expression data matrix (when perform one of the three methods): X_all (already log-transformed)
+  + export imputed data matrix: Y_rt_final 
 
 - BISCUIT calculations (BISCUIT_calculations.m)
-+ Impute data matrix based on linear transformation y = Ax+b 
-+ Generate heatmap based on clusters inferred from BISCUIT (z_inferred_final) and density plot to show correlation
+  + Impute data matrix based on linear transformation y = Ax+b 
+  + Generate heatmap based on clusters inferred from BISCUIT (z_inferred_final) and density plot to show correlation
 
 
 III. Randomly split 50% edges of G.S into 1 G.S and 1 prior 
