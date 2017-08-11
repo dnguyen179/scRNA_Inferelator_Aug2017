@@ -1,16 +1,16 @@
-%% BISCUIT calculations 
+%% BISCUIT calculations - Jul2017
 
-addpath(fullfile('~','Desktop', 'BISCUIT_aug7','output', 'plots', 'Inferred_Sigmas'))
-addpath(fullfile('~','Desktop', 'BISCUIT_aug7','output', 'plots', 'Inferred_means'))
-addpath(fullfile('~','Desktop', 'BISCUIT_aug7'));
+addpath(fullfile('~', 'BISCUIT', 'output', 'plots', 'Inferred_Sigmas'))
+addpath(fullfile('~','BISCUIT', 'output', 'plots', 'Inferred_means'))
+addpath(fullfile('~', 'BISCUIT'));
 addpath(fullfile('~','Documents','emily_functions','projection'))
 addpath(fullfile('~','Documents','emily_functions'))
 
 
-cluster_num = importdata('z_inferred_final.txt');
-data_raw = importdata('selected.txt');
-alpha_full = importdata('alpha_inferred_final.txt');
-beta_full = importdata('beta_inferred_final.txt');
+cluster_num = importdata('z_inferred_final.txt'); %% obtain via variable z_inferred_final 
+data_raw = importdata('selected.txt'); %% obtained via variable X_all in the R code 
+alpha_full = importdata('alpha_inferred_final.txt'); %% obtain via variable alpha_inferred_final 
+beta_full = importdata('beta_inferred_final.txt'); %% obtain via variable beta_inferred_final 
 mean_full = importdata('mu_final.txt'); 
 data_full = transpose(data_raw);
 
@@ -18,8 +18,6 @@ data_full = transpose(data_raw);
 [var, totK] = size(mean_full);
 newData = zeros(numGenes, numCells);
 
-% data_i = importdata('imputed.txt');
-% data_imputed = data_i';
 
 for i = 1:numCells
     beta_cell = beta_full(i);
@@ -39,10 +37,6 @@ end
 
 %% Categorize and generate heatmap
 
-% imputed = importdata('imputed.txt');
-% data_imputed = imputed';
-
-
 ClusterMatrix = [];
 for k = 1:totK
     for i = 1: numCells
@@ -60,7 +54,7 @@ figure(22)
 subplot(1,5,2:5)
 colormap redblue
 imagesc(zClusterMatrix(horderGeneExp,:))
-title('expression')
+title('Heatmap of gene expression according to BISCUIT clustering')
 
 
 for i = 1:numGenes
@@ -97,21 +91,13 @@ saveas(gcf,figName,'fig')
 disp([figName '.pdf + .fig'])
  
 
-% Heatmap 
+% Heatmap with k-means clustering  
 
 data1 = data_imputed;
-% data1 = importdata('imputed.txt');
-% data1 = data1';
 zData_row = zscore(data1')';
 zData_col = zscore(data1');
-% [coefs_row, scores_row, latent_row, tsquared_row, var_exp_row] = pca(zA_hat_row);
-% [coefs_col, scores_col, latent_col, tsquared_col, var_exp_col] = pca(zA_hat_col);
-pcs = 8;
+pcs = 4; %% number of desired clusters, can be changed
 data_plot = zData_row;
-
-% pcData = zeros(numGenes, numCells);
-% pcData_row = scores_row(:,1:pcs);
-% pcData_col = scores_col(:,1:pcs);
 
 pcData_row = zData_row;
 pcData_col = zData_col;
@@ -188,7 +174,7 @@ for clust = 1:clust_num_cols
     plot([start_spots_cols(clust) start_spots_cols(clust)]-.5,[ax(3) ax(4)],'k',...
         'LineWidth',2)
 end
-title(['Expression of K-means ' num2str(pcs) ' clusters'],'Fontsize',14)
+title(['Heatmap of gene expression according to k-means clustering of ' num2str(pcs) ' clusters'],'Fontsize',14)
     
 
 
