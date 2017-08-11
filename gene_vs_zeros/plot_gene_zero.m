@@ -1,7 +1,5 @@
 %% plot genes vs percent of zeros 
 
-addpath(fullfile('~', 'Desktop', 'DATA'));
-addpath(fullfile('~','emily_functions'))
 load cbcolors_rainbow.mat
 
 % GSM1599494
