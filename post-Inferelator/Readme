@@ -1,2 +1,6 @@
+Information about the Inferelator algorithm found in:
+M. L. Arrieta-Ortiz, C. Hafemeister, A. R. Bate, T. Chu, A. Greenfield,B. Shuster, S. N. Barry, M. Gallitto, B. Liu, T. Kacmarczyk, et al. 
+An experimentally supported model of the bacillus subtilis global transcriptional regulatory network. Molecular systems biology, 11(11):839, 2015.
+
 1. If predictors are grouped, use get_group.R to obtain predictor names for each group 
 2. get_TF.py: replace pred.group.[num] variables in network file with TF names that belong to that prediction group
