@@ -1,18 +1,16 @@
 %% Robust PCA 
 
-addpath(fullfile('~','Desktop'));
-addpath(fullfile('~','Desktop','Research', 'inexact_alm_rpca'));
-addpath(fullfile('~','Desktop','Research','inexact_alm_rpca', 'PROPACK'));
-addpath(fullfile('~','Documents','emily_functions','projection'))
-addpath(fullfile('~','Documents','emily_functions'))
+addpath(fullfile('~','inexact_alm_rpca'));
+addpath(fullfile('~','inexact_alm_rpca', 'PROPACK'));
+addpath(fullfile('~','emily_functions','projection'))
+addpath(fullfile('~','emily_functions'))
 
 % input and gene cutoff (if necessary) 
-inputF = importdata('GSM1599497.txt');
+inputF = importdata('GSM1599497_ES_d2_LIFminus.csv');
 data_full = inputF.data;
-% gene_names = gene_name; 
 
-%% normalization
-%library size - rpm  
+%% normalization - choose the desired data pre-processing scheme
+%library size  
 libsize  = sum(transpose(data_full),2);
 data_norm = bsxfun(@rdivide, transpose(data_full), libsize) * median(libsize);
 data_norm = data_norm';
@@ -35,6 +33,7 @@ maxIter = 1000;
 [A_hat E_hat iter] = inexact_alm_rpca(data_norm, lambda, tol, maxIter);
 
 save('gsm97_rpca.mat', 'A_hat'); 
+
 %% Generate heatmap
 
 % z-score 
@@ -85,7 +84,7 @@ clust_num_cols = length(ex_ids_cols);
 start_spots_cols = zeros(clust_num_cols,1);
 clust_sizes_cols = zeros(clust_num_cols,1);
 start_cols = 1;
-figure(3), clf
+figure(4), clf
 for clust = 1:clust_num_cols
     clust_ind_cols = find(kids_cols == ex_ids_cols(clust));
     if length(clust_ind_cols) > 1
@@ -104,9 +103,8 @@ for clust = 1:clust_num_cols
 end
 
 % plot clustering results 
-figure (4), clf 
+figure (5), clf 
 imagesc(A_hat_plot(inds_ordered_rows,inds_ordered_cols))
-% imagesc(pcData_col(inds_ordered_cols,:))
 colormap redblue
 colorbar
 ax = axis();
