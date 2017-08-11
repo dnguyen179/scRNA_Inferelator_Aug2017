@@ -1,5 +1,5 @@
 # scRNA_network_inference_Aug2017
-This repository contains source code for project "Transcriptional regulatory network inferrence from single-cell RNA measurements of embryonic stem cells" 
+This repository contains source code for project "Transcriptional regulatory network inference from single-cell RNA measurements of embryonic stem cells" 
 
 It includes:
 1. Plot genes vs percent of zeros 
@@ -10,13 +10,22 @@ It includes:
 6. Random split gold-standard (G.S) matrix into G.S and prior matrix 
 7. Post-Inferelator
 
-I. Preliminary data visualization and principle component analysis
+* Software required: MATLAB (tested in R2016a), R (tested in 3.4.0) and Python (tested in 3.6.1)
+* All tested data sets are contained in the Datasets folder (in compressed format)
+
+-----------
+WORKFLOW
+
+I. Preliminary data visualization and principle component analysis (gene_vs_zeros)
 - Plot number of genes according to percent of zeros to determine cutoff threshold for subsequent analysis. This ensures that selected genes are expressed in the dataset (gene_vs_perZero.m; plot_gene_zero.m)
-- Use principle component analysis (scores and loadings plots) to show how much of the trends can be explained by principle components. Scores plots are visualized by percent of zeros  (pca_anal_example.m)
-+ input: data matrix with gene names and conditions (if applicable) 
++ Invoke MATLAB
++ Select the data set(s) to visualize (found in ../scRNA_network_inference_Aug2017-master/Datasets)
++ Visualization program: plot_gene_zero.m 
++ Once the desired data file(s) has been hard-coded into the program, to display plot, type this command: 
+plot_gene_zero.m <RET>
 
 II. Data normalization and imputation methods 
-1. MAGIC (code: magic.m)
+1. MAGIC (code: magic.m, in ../scRNA_network_inference_Aug2017-master/MAGIC)
 
 a. Running the package
 - Set parameters: 
@@ -44,18 +53,20 @@ c. Data visualization
 + z-score across genes and samples 
 + using k-means clustering for both row and column direction 
 
-2. RPCA (rpca.m)
+2. RPCA (rpca.m, in in ../scRNA_network_inference_Aug2017-master/RPCA)
 
 a. Pre-processing data 
 - by library size (median) 
 - by centered log-ration transformation (CLR) (R package)
-+ install package “scone” in R
-+ use function CLR_FN to return a CLR-normalized data matrix 
 
 b. Running the package 
 - Download from: 
 http://perception.csl.illinois.edu/matrix-rank/sample_code.html
 - Use inexact augmented lagrange multiplier (ALM) method
+- Change parameters:
++ Input data file 
++ tol 
++ maxIter 
 - Calculate lamda = 1/sqrt(max(number of genes, number of cells))
 - Function inexact_alm_rpca(data matrix, lamda, tolerance for stopping criterion, maximum number of iterations) returns estimates of matrix A (A_hat) and E (E_hat)
 
@@ -91,7 +102,8 @@ III. Randomly split 50% edges of G.S into 1 G.S and 1 prior
 (rand_GS_50.m)
 - For each TF, find the number of edges (non-zero values) 
 - Split 50% of the edges to G.S matrix and the other 50% to prior matrix
-- Output: 2 files – GS and prior 
+- Alter the names of the input file and of the two output files as desired
+- Output: 2 files – G.S and prior 
 
 IV. Post-Inferelator
 - Expand prediction groups into transcription factors that belong to each group with respective edges in the network 
