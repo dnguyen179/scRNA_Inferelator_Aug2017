@@ -28,7 +28,7 @@ then the addpath() line should be
 
 addpath(genpath('/MiraldiLab/DiepNguyenGitHubProject/scRNA_network_inferrence_Aug2017-master'))
 
-Once that is done, the data files should now be ready for use and accessible to the Matlab programs simply by file name.
+- Once that is done, the data files should now be ready for use and accessible to the Matlab programs simply by file name.
 -----------
 WORKFLOW
 
