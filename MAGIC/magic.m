@@ -3,10 +3,20 @@
 addpath(fullfile('~','Miraldi_functions'))
 
 % Load data and gene/cell names - input matrix should be cells x genes 
-inputF = importdata('GSM1599497_ES_d2_LIFminus.csv');
-OriginalData = inputF.data;  % genesxcells matrix
+inputF = 'GSM1599497_ES_d2_LIFminus.csv';
+fid = fopen(inputF,'r');
+tline = fgetl(fid);
+fclose(fid);
+columns = cellstr(strvcat(strsplit(tline,'\t')));    % get sample names
+totSamps = length(columns); 
+% Now that we know # of samples, reopen and get the rest
+fid = fopen(inputF,'r');
+C = textscan(fid,['%s' repmat('%f',1,totSamps)],'Delimiter','\t','Headerlines',0);
+fclose(fid);
+genesc = C{1};          % get gene names
+ncounts = [C{2:end}];   % get gene expression values
 
-data = OriginalData'; % cellsxgenes matrix as input for MAGIC
+data = ncounts'; % cellsxgenes matrix as input for MAGIC
 
 % run MAGIC
 npca = 20; % ususally between 10 and 200
