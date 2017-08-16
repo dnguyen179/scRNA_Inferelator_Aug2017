@@ -5,8 +5,18 @@ addpath(fullfile('~','inexact_alm_rpca', 'PROPACK'));
 addpath(fullfile('~','Miraldi_functions'))
 
 % input and gene cutoff (if necessary) 
-inputF = importdata('GSM1599497_ES_d2_LIFminus.csv');
-data_full = inputF.data;
+inputF = 'GSM1599497_ES_d2_LIFminus.csv';
+fid = fopen(inputF,'r');
+tline = fgetl(fid);
+fclose(fid);
+columns = cellstr(strvcat(strsplit(tline,'\t')));    % get sample names if applicable
+totSamps = length(columns); 
+% Now that we know # of samples, reopen and get the rest
+fid = fopen(inputF,'r');
+C = textscan(fid,['%s' repmat('%f',1,totSamps)],'Delimiter','\t','Headerlines',0);
+fclose(fid);
+genesc = C{1};          % get gene names
+data_full = [C{2:end}];
 
 %% normalization - choose the desired data pre-processing scheme
 %library size  
