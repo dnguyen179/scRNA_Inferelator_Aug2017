@@ -1,7 +1,13 @@
 # scRNA_network_inference_Aug2017
-This repository contains source code for project "Transcriptional regulatory network inference from single-cell RNA measurements of embryonic stem cells" 
+This repository contains source code for project "Transcriptional regulatory network inference from single-cell RNA measurements of embryonic stem cells"
 
-It includes:
+With the breakthrough of single-cell RNA-seq (scRNA-seq), transcriptome-wide analyses of individual cells can be undertaken, even when sample material is limiting and a priori knowledge of transcription regulation is insufficient. ScRNA-seq quantifies intra-population heterogeneity, and enables study of cell states and gene expression dynamics at a higher resolution, which are masked in bulk RNA-seq measurements. However, current scRNA-seq techniques have low capture rate, with only 5-15% of total transcriptome of each cell. Thus, scRNA-seq data tend to be sparse data matrices with ambiguous zeros, in which sampling zeros (expressed transcripts but not detected, known as “dropout genes”) and true zeros (transcript not expressed) are not well distinguished. For any downstream analysis, it is important to resolve biological variations, the trends of interest, from technical variations.
+
+In this project, we benchmarked four independent statistical approaches to normalize and impute 'dropout genes' in scRNA-seq data matrices: RPM, MAGIC, BISCUIT and RPCA. In order to evaluate the performance of each method, density plots and heatmaps are generated for visualization. Once the dataset has been processed by each of this method, it will be used as the input gene expression matrix for the Inferelator to generate respective network. To assess the recovery of known interactions, we compute the Area Under the Precision Recall (AUPR) and generate Precision-Recall curves to compare with random. The AUPR has a value of 1 when all G.S interactions rank top of the list and close to 0 for random predictions.
+
+--------------
+
+This github repository includes these following files/functions:
 1. Plot genes vs percent of zeros 
 2. Principle Component Analysis 
 3. MAGIC (Markov Affinity-based Graph Imputation of Cells) 
